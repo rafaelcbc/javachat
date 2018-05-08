@@ -32,7 +32,9 @@ public class ChatCliente extends JFrame {
 				while((texto = leitor.nextLine()) != null) {
 					textoRecebido.append(texto + "\n");
 				}
-			} catch(Exception e) {}
+			} catch(Exception e) {
+				System.out.println("Erro: " + e.getMessage());
+			}
 		}
 		
 	}
@@ -86,7 +88,9 @@ public class ChatCliente extends JFrame {
 			escritor = new PrintWriter(socket.getOutputStream());
 			leitor = new Scanner(socket.getInputStream());
 			new Thread(new EscutaServidor()).start();
-		} catch (Exception e) {}
+		} catch (Exception e) {
+			System.out.println("Erro: " + e.getMessage());
+		}
 	}
 	
 	public static void main(String[] args) {
